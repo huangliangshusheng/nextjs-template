@@ -5,11 +5,7 @@ import "../styles/index.css";
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <ThemeProvider
-            attribute="class"
-            storageKey="nightwind-mode"
-            defaultTheme="system" // default "light"
-        >
+        <ThemeProvider attribute="class">
             <Component {...pageProps} />
         </ThemeProvider>
     );
