@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    workspace:
+        image: node:16-bullseye
+        network_mode: "host"
+        working_dir: /workspace
+        environment:
+            - TZ=Asia/Shanghai
+        volumes:
+            - .:/workspace:cached
+        command: >
+            /bin/sh -c "yarn config set registry https://registry.npm.taobao.org -g && 
+                        yarn install &&
+                        yarn dev"
+        restart: unless-stopped
